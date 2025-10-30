@@ -1,23 +1,56 @@
-import logo from './logo.svg';
+import React, { lazy, Suspense } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import './App.css';
 
+// Components
+const Header = lazy(() => import('./components/Header'));
+const Hero = lazy(() => import('./components/Hero'));
+const PerfumeCarousel = lazy(() => import('./components/PerfumeCarousel'));
+const FeaturedProducts = lazy(() => import('./components/FeaturedProducts'));
+const About = lazy(() => import('./components/About'));
+const Testimonials = lazy(() => import('./components/Testimonials'));
+const Newsletter = lazy(() => import('./components/Newsletter'));
+const Footer = lazy(() => import('./components/Footer'));
+
 function App() {
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <motion.div 
+        className="background-scale"
+        style={{ scale }}
+      />
+      <Suspense>
+      <Header />
+      
+      {/* Add IDs to all sections for navigation */}
+      <section id="home">
+        <Hero />
+      </section>
+      
+      <section id="collections">
+        <PerfumeCarousel />
+      </section>
+      
+      <section id="shop">
+        <FeaturedProducts />
+      </section>
+      
+      <section id="about">
+        <About />
+      </section>
+      
+      <section id="testimonials">
+        <Testimonials />
+      </section>
+      
+      <section id="contact">
+        <Newsletter />
+        <Footer />
+      </section>
+      </Suspense>
     </div>
   );
 }
