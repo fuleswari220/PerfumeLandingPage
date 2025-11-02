@@ -7,7 +7,7 @@ const Footer = () => {
     service: ['Contact Us', 'Shipping & Returns', 'FAQ', 'Store Locator', 'Fragrance Guide', 'Custom Scents'],
     company: ['About Us', 'Our Story', 'Sustainability', 'Careers', 'Press', 'Privacy Policy'],
     contact: [
-      { icon: 'map-marker-alt', text: '123 Fragrance Ave, Paris, France' },
+      { icon: 'map-marker-alt', text: 'Kolkata,West Bengal,India' },
       { icon: 'phone', text: '+91-8371047875' },
       { icon: 'envelope', text: 'fuleswari220@gmail.com' },
       { icon: 'clock', text: 'Mon-Fri: 9AM-6PM' }
