@@ -157,7 +157,10 @@ const Footer = () => {
               {socialIcons.map((social, index) => (
                 <motion.a 
                   key={social.name}
-                  href="#"
+                  href={`https://www.${social.name}.com`} 
+                  aria-label={`Visit our ${social.name} page`}
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="social-link"
                   custom={index}
                   variants={socialVariants}
@@ -204,7 +207,7 @@ const Footer = () => {
                   whileHover={{ x: 10, color: '#d4af37' }}
                   transition={{ duration: 0.3 }}
                 >
-                  <a href="#">
+                  <a href="/" aria-label={link}>
                     <i className="fas fa-chevron-right"></i>
                     {link}
                   </a>
@@ -228,7 +231,7 @@ const Footer = () => {
                   whileHover={{ x: 10, color: '#d4af37' }}
                   transition={{ duration: 0.3 }}
                 >
-                  <a href="#">
+                  <a href="/" aria-label={link}>
                     <i className="fas fa-chevron-right"></i>
                     {link}
                   </a>
@@ -252,7 +255,7 @@ const Footer = () => {
                   whileHover={{ x: 10, color: '#d4af37' }}
                   transition={{ duration: 0.3 }}
                 >
-                  <a href="#">
+                  <a href="/" aria-label={link}>
                     <i className="fas fa-chevron-right"></i>
                     {link}
                   </a>
@@ -327,7 +330,8 @@ const Footer = () => {
               {['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'Disclaimer'].map((link, index) => (
                 <motion.a 
                   key={link}
-                  href="#"
+                  href="/" 
+                  aria-label={link}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}

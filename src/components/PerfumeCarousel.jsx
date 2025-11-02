@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import midnightrose from "../assests/Midnight Rose.jpg"
 import oceanbreeze from "../assests/Ocean Breeze.jpg"
@@ -46,10 +46,11 @@ const PerfumeCarousel = () => {
     }
   ];
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % perfumes.length);
-  };
+  }, [perfumes.length]);
+
 
   const prevSlide = () => {
     setDirection(-1);
@@ -58,14 +59,14 @@ const PerfumeCarousel = () => {
 
   // Auto-play effect
   useEffect(() => {
-    if (!isHovered) {
-      const interval = setInterval(() => {
-        nextSlide();
-      }, 4000);
-      
-      return () => clearInterval(interval);
-    }
-  }, [isHovered]);
+  if (!isHovered) {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 4000);
+    return () => clearInterval(interval);
+  }
+}, [isHovered, nextSlide]);
+
 
   // Animation variants
   const cardVariants = {
@@ -104,7 +105,7 @@ const PerfumeCarousel = () => {
 
   const backgroundVariants = {
     initial: { scale: 1, rotate: 0 },
-    animate: { 
+    animate: {
       scale: [1, 1.02, 1],
       rotate: [0, 1, 0],
       transition: {
@@ -131,7 +132,7 @@ const PerfumeCarousel = () => {
   return (
     <section className="perfume-carousel-new section-padding" id="collections">
       {/* Animated Background Elements */}
-      <motion.div 
+      <motion.div
         className="carousel-bg-elements"
         variants={backgroundVariants}
         initial="initial"
@@ -143,7 +144,7 @@ const PerfumeCarousel = () => {
       </motion.div>
 
       <div className="container">
-        <motion.div 
+        <motion.div
           className="carousel-header-new"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -153,14 +154,14 @@ const PerfumeCarousel = () => {
           <h2>Signature Collection</h2>
           <p>Immerse yourself in our exclusive fragrances crafted with precision and passion</p>
         </motion.div>
-        
-        <div 
+
+        <div
           className="carousel-wrapper-new"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           {/* Navigation Buttons */}
-          <motion.button 
+          <motion.button
             className="nav-btn-new prev-btn-new"
             onClick={prevSlide}
             whileHover={{ scale: 1.1, x: -5 }}
@@ -170,7 +171,7 @@ const PerfumeCarousel = () => {
               <i className="fas fa-chevron-left"></i>
             </div>
           </motion.button>
-          
+
           {/* Main Carousel Track */}
           <div className="carousel-track-new">
             <AnimatePresence mode="popLayout" custom={direction}>
@@ -187,8 +188,8 @@ const PerfumeCarousel = () => {
                 {/* Product Image with Glow Effect */}
                 <div className="perfume-image-new">
                   <div className="image-glow"></div>
-                  <motion.img 
-                    src={perfumes[currentIndex].image} 
+                  <motion.img
+                    src={perfumes[currentIndex].image}
                     alt={perfumes[currentIndex].name}
                     initial={{ scale: 1.1 }}
                     animate={{ scale: 1 }}
@@ -196,7 +197,7 @@ const PerfumeCarousel = () => {
                   />
                   <div className="reflection"></div>
                 </div>
-                
+
                 {/* Product Information */}
                 <div className="perfume-info-new">
                   <motion.h3
@@ -206,7 +207,7 @@ const PerfumeCarousel = () => {
                   >
                     {perfumes[currentIndex].name}
                   </motion.h3>
-                  
+
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -216,7 +217,7 @@ const PerfumeCarousel = () => {
                   </motion.p>
 
                   {/* Fragrance Notes */}
-                  <motion.div 
+                  <motion.div
                     className="fragrance-notes"
                     initial="initial"
                     animate="animate"
@@ -232,18 +233,18 @@ const PerfumeCarousel = () => {
                       </motion.span>
                     ))}
                   </motion.div>
-                  
+
                   {/* Price and Action */}
-                  <motion.div 
+                  <motion.div
                     className="product-price-new"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6, duration: 0.6 }}
                   >
                     <span className="price-new">{perfumes[currentIndex].price}</span>
-                    <motion.button 
+                    <motion.button
                       className="discover-btn-new"
-                      whileHover={{ 
+                      whileHover={{
                         scale: 1.05,
                         background: "linear-gradient(135deg, #d4af37 0%, #b8941f 100%)"
                       }}
@@ -264,8 +265,8 @@ const PerfumeCarousel = () => {
               </motion.div>
             </AnimatePresence>
           </div>
-          
-          <motion.button 
+
+          <motion.button
             className="nav-btn-new next-btn-new"
             onClick={nextSlide}
             whileHover={{ scale: 1.1, x: 5 }}
@@ -276,9 +277,9 @@ const PerfumeCarousel = () => {
             </div>
           </motion.button>
         </div>
-        
+
         {/* Enhanced Dots Indicator */}
-        <motion.div 
+        <motion.div
           className="carousel-dots-new"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -302,7 +303,7 @@ const PerfumeCarousel = () => {
         </motion.div>
 
         {/* Progress Bar */}
-        <motion.div 
+        <motion.div
           className="progress-bar"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
