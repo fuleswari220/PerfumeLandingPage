@@ -5,7 +5,7 @@
   position: relative;
   min-height: 100vh;
   width: 100%;
-  background: url('../assests/wallpaper.jpg') center/cover no-repeat;
+  background: url('../assests/wallpaper.webp') center/cover no-repeat;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -37,7 +37,6 @@
   right: 0;
   width: 60%;
   height: 100%;
-  background: url('../assests/floral-pattern.jpg') center/contain no-repeat;
   opacity: 0.03;
   pointer-events: none;
 }

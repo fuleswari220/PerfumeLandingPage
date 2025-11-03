@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import perfume from "../assests/perfumemodel.jpg"
+import perfume from "../assests/perfumemodel.webp"
 
 const About = () => {
   const ref = useRef(null);

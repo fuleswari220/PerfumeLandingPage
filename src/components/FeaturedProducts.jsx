@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import midnightrose from "../assests/Midnight Rose.jpg"
-import oceanbreeze from "../assests/Ocean Breeze.jpg"
-import goldenamber from "../assests/Golden Amber.jpg"
-import velvetorchid from "../assests/Velvet Orchid.jpg"
-import cirtrus from "../assests/Citrus Bloom.jpg"
-import mysticwood from "../assests/Mystic Woods.jpg"
+import midnightrose from "../assests/Midnight Rose.webp"
+import oceanbreeze from "../assests/Ocean Breeze.webp"
+import goldenamber from "../assests/Golden Amber.webp"
+import velvetorchid from "../assests/Velvet Orchid.webp"
+import cirtrus from "../assests/Citrus Bloom.webp"
+import mysticwood from "../assests/Mystic Woods.webp"
 
 const FeaturedProducts = () => {
   const ref = useRef(null);

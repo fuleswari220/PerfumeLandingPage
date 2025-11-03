@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import profile1 from "../assests/images.webp"
+import profile2 from "../assests/images2.webp"
+import profile3 from "../assests/images3.webp"
 
 const Testimonials = () => {
   const ref = useRef(null);
@@ -12,21 +15,21 @@ const Testimonials = () => {
       text: "The Midnight Rose perfume is absolutely divine! I receive compliments every time I wear it. The scent lasts all day and the packaging is exquisite.",
       author: "Sarah Johnson",
       location: "New York, USA",
-      avatar: "https://randomuser.me/api/portraits/women/44.jpg"
+      avatar:  profile1
     },
     {
       id: 2,
       text: "I've been using Ocean Breeze for my daily wear and it's become my signature scent. It's fresh but not overpowering, perfect for the office.",
       author: "Michael Chen",
       location: "London, UK",
-      avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+      avatar:  profile2
     },
     {
       id: 3,
       text: "The quality of LuxeScents perfumes is unmatched. I've tried many luxury brands, but none have the depth and longevity of these fragrances.",
       author: "Isabella Rossi",
       location: "Milan, Italy",
-      avatar: "https://randomuser.me/api/portraits/women/68.jpg"
+      avatar:  profile3
     }
   ];
 

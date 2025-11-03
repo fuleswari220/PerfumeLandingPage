@@ -88,8 +88,10 @@ const Newsletter = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <h1>Discover the Essence of Luxury</h1>
+        <div className="section-title">
+        <h2>Discover the Essence of <span className="highlight">Luxury</span></h2>
         <p>Join our newsletter to unlock a world of exclusive fragrances and offers</p>
+        </div>
       </motion.div>
 
       {/* Background Elements */}

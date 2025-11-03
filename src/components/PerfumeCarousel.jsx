@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import midnightrose from "../assests/Midnight Rose.jpg"
-import oceanbreeze from "../assests/Ocean Breeze.jpg"
-import goldenamber from "../assests/Golden Amber.jpg"
-import velvetorchid from "../assests/Velvet Orchid.jpg"
+import midnightrose from "../assests/Midnight Rose.webp"
+import oceanbreeze from "../assests/Ocean Breeze.webp"
+import goldenamber from "../assests/Golden Amber.webp"
+import velvetorchid from "../assests/Velvet Orchid.webp"
 
 
 const PerfumeCarousel = () => {

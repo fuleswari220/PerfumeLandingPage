@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Hero.css";
-import perfume from "../assests/perfume-bottle-nature.jpg"
-import perfume2 from "../assests/wallpaper.jpg"
+import perfume from "../assests/perfume-bottle-nature.webp"
+import perfume2 from "../assests/wallpaper.webp"
 
 gsap.registerPlugin(ScrollTrigger);
 
