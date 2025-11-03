@@ -157,7 +157,7 @@ const Hero = () => {
           <div className="hero-content" ref={contentRef}>
             <h1>ESSENCE</h1>
             <p>
-              Crafted with passion, designed for moments that matter — <strong>ESSENCE</strong>
+              Crafted with passion, designed for moments that matter - <strong>ESSENCE</strong> <br></br>
               brings you timeless fragrances inspired by nature and refined through artful craftsmanship.
             </p>
 

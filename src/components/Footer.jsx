@@ -149,8 +149,7 @@ const Footer = () => {
               <div className="logo-decoration"></div>
             </motion.div>
             <p className="brand-description">
-              Crafting unforgettable fragrances since 2010. Experience luxury in every bottle with our 
-              meticulously curated scents that tell your unique story.
+              Discover LuxeScents - where luxury meets emotion. Handcrafted fragrances that speak your story, one scent at a time.
             </p>
             
             <div className="social-links">

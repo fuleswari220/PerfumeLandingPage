@@ -20,16 +20,16 @@ const About = () => {
   };
 
   const textVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 60,
       scale: 0.9
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       scale: 1,
-      transition: { 
+      transition: {
         duration: 0.8,
         ease: [0.25, 0.1, 0.25, 1]
       }
@@ -37,16 +37,16 @@ const About = () => {
   };
 
   const imageVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       scale: 0.8,
       rotateY: 15
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       scale: 1,
       rotateY: 0,
-      transition: { 
+      transition: {
         duration: 1,
         ease: "easeOut",
         delay: 0.5
@@ -119,13 +119,13 @@ const About = () => {
   return (
     <section className="about section-padding" id="about" ref={ref}>
       <div className="container">
-        <motion.div 
+        <motion.div
           className="about-content"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <motion.div 
+          <motion.div
             className="about-text"
             variants={textVariants}
           >
@@ -137,32 +137,33 @@ const About = () => {
             >
               About Us
             </motion.div>
-            
+
             <motion.h2
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
             >
-              Crafting Scents That Tell <span className="highlight">Your Story</span>
+              Artfully Crafted Scents That Define <span className="highlight">You</span>
             </motion.h2>
-            
+
             {[
-              "At LuxeScents, we believe fragrance is more than just a scent—it's a memory, an emotion, a journey. Since 2010, our master perfumers have been crafting exceptional fragrances using the world's finest ingredients, each bottle telling a unique story.",
-              "Our personalized consultation process ensures you find a scent that resonates with your personality and style. We combine traditional craftsmanship with innovative techniques to create fragrances that evolve beautifully throughout the day."
-            ].map((paragraph, index) => (
-              <motion.p
-                key={index}
-                custom={index}
-                variants={paragraphVariants}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-              >
-                {paragraph}
-              </motion.p>
-            ))}
-            
+              "At LuxeScents, we blend art and aroma to craft perfumes that linger — not just in the air, but in memory. Every fragrance begins as an inspiration and evolves into an unforgettable signature, designed to reflect who you are.",
+              "Guided by over a decade of passion and precision, our perfumers use rare ingredients and timeless techniques to capture emotions in every drop. From the first note to the last, each scent tells your story — elegantly, effortlessly, eternally."
+            ]
+              .map((paragraph, index) => (
+                <motion.p
+                  key={index}
+                  custom={index}
+                  variants={paragraphVariants}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                >
+                  {paragraph}
+                </motion.p>
+              ))}
+
             {/* Stats section */}
-            <motion.div 
+            <motion.div
               className="stats-grid"
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -173,7 +174,7 @@ const About = () => {
                 { number: "50+", text: "Unique Scents" },
                 { number: "10k+", text: "Happy Customers" }
               ].map((stat, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className="stat-item"
                   variants={textVariants}
@@ -184,8 +185,8 @@ const About = () => {
                 </motion.div>
               ))}
             </motion.div>
-            
-            <motion.button 
+
+            <motion.button
               className="btn btn-primary"
               variants={buttonVariants}
               initial="hidden"
@@ -194,7 +195,7 @@ const About = () => {
               whileTap="tap"
             >
               <span>Discover Our Story</span>
-              <motion.i 
+              <motion.i
                 className="fas fa-arrow-right"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
@@ -213,7 +214,7 @@ const About = () => {
                     left: `${particle.x}%`
                   }}
                   initial={{ opacity: 0, y: 100 }}
-                  animate={isInView ? { 
+                  animate={isInView ? {
                     opacity: [0, 0.6, 0],
                     y: -100,
                     rotate: 360
@@ -229,45 +230,45 @@ const About = () => {
               ))}
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="about-image-container"
             variants={imageVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             whileHover="hover"
           >
-            <motion.div 
+            <motion.div
               className="about-image"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 transition: { duration: 0.4 }
               }}
             >
-              <img 
+              <img
                 src={perfume}
-                alt="LuxeScents Perfume Craftsmanship" 
+                alt="LuxeScents Perfume Craftsmanship"
               />
-              
+
               {/* Image overlay effect */}
-              <motion.div 
+              <motion.div
                 className="image-overlay"
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               />
             </motion.div>
-            
+
             {/* Enhanced image frame with gradient */}
-            <motion.div 
+            <motion.div
               className="image-frame"
               initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
               animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0.9 }}
               transition={{ delay: 0.9, duration: 0.7, ease: "easeOut" }}
             />
-            
+
             {/* Floating badge */}
-            <motion.div 
+            <motion.div
               className="quality-badge"
               initial={{ opacity: 0, scale: 0, rotate: -180 }}
               animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0 }}

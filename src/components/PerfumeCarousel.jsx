@@ -152,7 +152,7 @@ const PerfumeCarousel = () => {
           viewport={{ once: true }}
         >
           <h2>Signature Collection</h2>
-          <p>Immerse yourself in our exclusive fragrances crafted with precision and passion</p>
+          <p>Each fragrance tells a story — find the one that defines you.</p>
         </motion.div>
 
         <div

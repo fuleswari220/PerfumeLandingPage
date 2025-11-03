@@ -56,7 +56,7 @@ const Testimonials = () => {
     <section className="testimonials section-padding" ref={ref} id="testimonials">
       <div className="container">
         <div className="section-title">
-          <h2>What Our Customers Say</h2>
+          <h2>Stories from Our <span className="highlight">Delighted Customers</span></h2>
           <p>Discover why thousands of customers trust LuxeScents for their signature fragrances</p>
         </div>
 
@@ -77,7 +77,12 @@ const Testimonials = () => {
               }}
             >
               <div className="testimonial-text">
-                <p>"{testimonial.text}"</p>
+                <p>
+  <i className="fas fa-quote-left quote-icon"></i>
+  {testimonial.text}
+  <i className="fas fa-quote-right quote-icon"></i>
+</p>
+
               </div>
               <div className="testimonial-author">
                 <div className="author-avatar">

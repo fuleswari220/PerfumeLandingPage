@@ -83,7 +83,7 @@ const FeaturedProducts = () => {
   const categories = ['All', ...new Set(products.map(product => product.category))];
 
   // Filter products based on selected category
-  const filteredProducts = products.filter(product => 
+  const filteredProducts = products.filter(product =>
     selectedCategory === 'All' || product.category === selectedCategory
   );
 
@@ -148,8 +148,8 @@ const FeaturedProducts = () => {
   };
 
   const cardVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 60,
       scale: 0.9
     },
@@ -166,8 +166,8 @@ const FeaturedProducts = () => {
 
   const paginationVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.6 }
     }
@@ -201,17 +201,17 @@ const FeaturedProducts = () => {
   return (
     <section className="shop-section section-padding" id="shop" ref={ref}>
       <div className="container">
-        <motion.div 
+        <motion.div
           className="shop-header"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
         >
           <h2>Perfume Shop</h2>
-          <p>Browse our complete collection of luxury fragrances</p>
-          
+          <p>Indulge in our most-loved fragrances — where every scent tells a story of elegance.</p>
+
           {/* Shop Filters - Now in single line */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -238,8 +238,8 @@ const FeaturedProducts = () => {
 
               {/* Sort Filter */}
               <div className="filter-group">
-                <span className="filter-label">Sort by:</span>
-                <select 
+                <span className="filter-label">Sort Collection:</span>
+                <select
                   className="sort-select"
                   value={sortBy}
                   onChange={handleSortChange}
@@ -255,7 +255,7 @@ const FeaturedProducts = () => {
         </motion.div>
 
         {/* Products Grid */}
-        <motion.div 
+        <motion.div
           className="shop-grid"
           variants={containerVariants}
           initial="hidden"
@@ -268,16 +268,19 @@ const FeaturedProducts = () => {
                 key={product.id}
                 className="shop-product-card"
                 variants={cardVariants}
-                whileHover={{ 
+                whileHover={{
                   y: -10,
-                  transition: { duration: 0.3 }
+                  scale: 1.03,
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
+                  transition: { duration: 0.4, ease: "easeOut" }
                 }}
+
               >
                 {/* Product Image */}
                 <div className="product-image-container">
                   <img src={product.image} alt={product.name} />
                   <div className="product-overlay">
-                    <motion.button 
+                    <motion.button
                       className="quick-view-btn"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
@@ -301,13 +304,13 @@ const FeaturedProducts = () => {
                       <span>{product.rating}</span>
                     </div>
                   </div>
-                  
+
                   <h3 className="product-title">{product.name}</h3>
                   <p className="product-description">{product.description}</p>
-                  
+
                   <div className="product-footer">
                     <span className="product-price">{product.price}</span>
-                    <motion.button 
+                    <motion.button
                       className="add-to-cart-shop"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -321,7 +324,7 @@ const FeaturedProducts = () => {
             ))
           ) : (
             // No products found message
-            <motion.div 
+            <motion.div
               className="no-products"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -336,7 +339,7 @@ const FeaturedProducts = () => {
 
         {/* Enhanced Pagination - Only show buttons when available */}
         {currentProducts.length > 0 && (
-          <motion.div 
+          <motion.div
             className="shop-pagination"
             variants={paginationVariants}
             initial="hidden"
@@ -388,7 +391,7 @@ const FeaturedProducts = () => {
 
         {/* Page Info */}
         {currentProducts.length > 0 && (
-          <motion.div 
+          <motion.div
             className="page-info"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
